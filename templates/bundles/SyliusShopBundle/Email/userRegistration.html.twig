@@ -1,0 +1,13 @@
+{% block subject %}
+    Registro de usuario
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Bienvenido a RERdecoracion!
+        <br/><br/>
+        Has sido registrado.
+        <br/>
+        Gracias {{ user.username }}.
+    {% endautoescape %}
+{% endblock %}
