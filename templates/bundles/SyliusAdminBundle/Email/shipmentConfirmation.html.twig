@@ -1,0 +1,15 @@
+{% block subject %}
+    Confirmación de Envío
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Tu pedido con el número {{ order.number }} ha sido enviado usando  {{ shipment.method }}.
+        <br/>
+        You can check it's location with the "{{ shipment.tracking }}" tracking code.
+        Puede realizar el seguimiento del envió con el siguiente código de seguimiento:
+        "{{ shipment.tracking }}".
+        <br/><br/>
+        Gracias por la compra exitosa.
+    {% endautoescape %}
+{% endblock %}
