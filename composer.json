@@ -16,7 +16,9 @@
     ],
     "require": {
         "php": "^7.2",
+        "bitbag/cms-plugin": "^2.3",
         "sylius/sylius": "~1.6.0",
+        "symfony/apache-pack": "^1.0",
         "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2"
     },
