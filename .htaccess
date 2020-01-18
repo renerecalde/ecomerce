@@ -1,11 +1,14 @@
+# Configuración servidor
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:rerdecoracion.online
+#RewriteEngine on
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP_HOST} ^rerdecoracion.online$
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:rerdecoracion.online
+
 #<IfModule mod_rewrite.c>
-#    Options -MultiViews -Indexes
-#    RewriteEngine On
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteRule ^(.*)$ /public/index.php [QSA,L]
+#        RewriteEngine on
+#        RewriteCond %{REQUEST_FILENAME} !-f
+#        RewriteRule (^.*)$ /public/$1
 #</IfModule>
-
-
-#RewriteEngine On
-#RewriteCond %{HTTP_HOST} !^localhost:83/ecomerce\$ [NC]
-#RewriteRule ^(.*)$ localhost:83/ecomerce/public$1 [R=301,L]
+#
