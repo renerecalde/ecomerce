@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}RER{% endblock %}</title>
+    <title>{% block title %}Sylius{% endblock %}</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -13,10 +13,62 @@
     {% endblock %}
 
     {% block stylesheets %}
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+        <style>
+            .bitbag-page a, .bitbag-page a:hover {
+                color: rgba(0, 0, 0, .87);
+                width: 100%;
+            }
+
+            .bitbag-image-block a, .bitbag-image-block a:hover, .bitbag-image-block a:focus {
+                color: #333333;
+            }
+
+            .top.one {
+                margin-top: 1rem;
+            }
+
+            .bitbag-page, .bitbag-frequently-asked-question {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(34, 36, 38, .15);
+            }
+
+            .bitbag-page:hover {
+                background: rgba(0, 0, 0, .03);
+            }
+
+            .italic {
+                font-style: italic;
+            }
+
+            .intro {
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 900;
+            }
+
+            .intro.promo {
+                text-align: center;
+                text-transform: none;
+                font-weight: 900;
+                font-size: 20px;
+            }
+
+            .ui.menu .item > .label.credentials {
+                font-size: 14px;
+            }
+
+            .cms-logo {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            pre {
+                overflow: auto;
+            }
+        </style>
 
         {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
 
@@ -51,11 +103,27 @@
 
                 {{ sonata_block_render_event('sylius.shop.layout.after_header') }}
 
-                {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
+                <div class="ui large stackable menu">
+                    {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
+                    {{ render(path('bitbag_sylius_cms_plugin_shop_page_show_link_by_code', {'code' : 'about', 'template' : '@BitBagSyliusCmsPlugin/Shop/Page/Show/_link.html.twig'})) }}
+                    <a href="{{ path('bitbag_sylius_cms_plugin_shop_page_index_by_section_code', {'sectionCode' : 'blog'}) }}"
+                       class="item">
+                        Blog
+                        <span class="ui teal label">NEW</span>
+                    </a>
+                    <a href="{{ path('bitbag_sylius_cms_plugin_shop_frequently_asked_question_index') }}" class="item">
+                        FAQs
+                        <span class="ui teal label">NEW</span>
+                    </a>
+                    <a href="{{ path('sylius_admin_login') }}" class="item">
+                        Admin panel
+                        <span class="ui label blue credentials">Login: sylius, password: sylius</span>
+                    </a>
+                </div>
             </header>
         {% endblock %}
 
-        {% include '@SyliusShop/_flashes.html.twig' %}
+        {% include '@SyliusUi/_flashes.html.twig' %}
 
         {{ sonata_block_render_event('sylius.shop.layout.before_content') }}
 
