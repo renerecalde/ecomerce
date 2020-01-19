@@ -1,6 +1,10 @@
+# Other files #
 .idea/*
 /.idea/*
+.env.local
+.env.*.local
 
+# Symfony files
 /public/assets
 /public/css
 /public/js

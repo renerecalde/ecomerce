@@ -1,21 +1,26 @@
 {
+    "name": "renerecalde/ecomerce",
+    "description": "Ecommerce sylius based.",
     "keywords": ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart", "shopping"],
     "type": "project",
     "license": "proprietary",
     "homepage": "https://sylius.com",
     "authors": [
         {
-            "name": "Paweł Jędrzejewski"
+            "name": "Paweł Jędrzejewski",
+            "name": "Rene Recalde",
+
         },
         {
-            "name": "Sylius project"
+            "name": "Sylius project",
+            "name": "Ecomerce project",
         },
         {
             "name": "Community contributions"
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "bitbag/cms-plugin": "^2.3",
         "sylius/sylius": "~1.6.0",
         "symfony/apache-pack": "^1.0",
